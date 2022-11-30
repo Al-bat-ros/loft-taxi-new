@@ -1,0 +1,174 @@
+
+.input-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/images/МapSPB.jpg);
+}
+ 
+.Main-Header {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1C1A19;
+    width: 34%;
+}
+
+.form-input {
+    width: 66%;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;  
+}
+
+.form-input-wrap {
+    width: 520px;
+    padding-top: 48px ;
+    padding-right: 0;
+    padding-bottom: 48px;
+    padding-left: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%);
+}
+
+.form-input-wrap_wrap {
+    display: flex;
+    padding: 0 102px 0 98px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-input_text {
+    font-size: 1.65rem;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2.75rem;
+    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+    line-height: 1.235;
+    letter-spacing: 0.00735em;
+}
+
+.form-input_container {
+    display: block;
+    margin-bottom: 24px;
+}
+
+
+.form-input-email_wrap, 
+.form-input-name_wrap,
+.form-input-pass_wrap{
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border: 0;
+    margin-right: 0;
+    margin-left: 0;
+    display: inline-flex;
+    padding: 0;
+    position: relative;
+    min-width: 0;
+    flex-direction: column;
+    vertical-align: top;
+}
+
+.form-input-input_email,
+.form-input-input_name,
+.form-input-input_pass {
+    margin-top: 16px;
+    position: relative;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: text;
+    display: inline-flex;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.1876em;
+    letter-spacing: 0.00938em;
+}
+.form-input-input_email::before,
+.form-input-input_name::before,
+.form-input-input_pass::before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "\00a0";
+    position: absolute;
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0ms;
+    transition-property: border-bottom-color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+}
+
+#name, #email, #pass {
+    font: inherit;
+    color: currentColor;
+    width: 100%;
+    border: 0;
+    height: 1.1876em;
+    margin: 0;
+    display: block;
+    padding: 6px 0 7px;
+    min-width: 0;
+    background: none;
+    box-sizing: content-box;
+    animation-name: mui-auto-fill-cancel;
+    letter-spacing: inherit;
+    animation-duration: 10ms;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#pass:invalid {
+    box-shadow: none;
+}
+
+
+.form-input_button {
+    text-decoration: none;
+    margin-top: 72px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-radius: 40px;
+    letter-spacing: 0px;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #FDBF5A;
+    width: 100%;
+    padding: 6px 16px;
+    box-sizing: border-box;
+    line-height: 1.75;
+    border: 0;
+    cursor: pointer;
+}
+
+.form-input_newuser {
+    font-size: 1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    margin: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.form-input_newuser a {
+    text-decoration: none;
+    color: rgb(253, 191, 90)
+
+}
