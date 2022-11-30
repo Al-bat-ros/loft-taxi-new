@@ -15,7 +15,8 @@ const passHandler = (e) => {
     setPassword(e.target.value)
 }
 
-const send =()=> {
+const send =(event)=> {
+    event.preventDefault();
     auth.login(name, password)
 }
 
@@ -27,16 +28,16 @@ const send =()=> {
                     <form className="form-input_container">
                         <div className="form-input-name_wrap">
                             <div className="form-input-input_name">
-                                <input onChange={e => nameHandler(e)} value={name}  id="name" type="name" name="name"    placeholder="Имя пользователя*" />
+                                <input onChange={e => nameHandler(e)} value={name}  id="name" type="name" name="name" placeholder="Имя пользователя*" />
                             </div>
                         </div>
                         <div className="form-input-pass_wrap">
                             <div className="form-input-input_pass">
                                
-                                <input onChange={e => passHandler(e)}  value={password}  id="pass" type="password" name="password"    placeholder='Пароль*' />
+                                <input onChange={e => passHandler(e)}  value={password}  id="pass" type="password" name="password" placeholder='Пароль*' />
                             </div>
                         </div>
-                            <button className="form-input_button" onClick={send}>Войти</button>
+                            <button className="form-input_button" onClick={send} >Войти</button>
                     </form>
                     <div>
                     <p className="form-input_newuser">

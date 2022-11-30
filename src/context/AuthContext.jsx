@@ -8,7 +8,7 @@ export const AuthProvider = ({children}) => {
 
     const login = ( email, password ) =>  {
         if( email !== 'al-bat-ros@mail.ru' || password !== '123456' ) {
-            alert('wrong login or password');
+           alert('wrong login or password');          
         }  else {
             setLogedIn(true)
         } 
