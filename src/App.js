@@ -1,29 +1,33 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { AuthPage, MapsPage } from './pages';
-import { AuthContext } from './context/AuthContext'
+import { connect } from 'react-redux'
 import './App.css';
+import { Link, Route, Routes } from "react-router-dom"
+// import  AuthPage from './pages/AuthPages/AuthPage';
+// import  MapsPage  from './pages/MapPage/MapsPage';
+import  FormProfileCard  from './compnents/Forms/FormProfileCard/FormProfileCard';
+import { PrivateRoute } from './PrivateRoute'
+
 
 
 
  function App (props) {
-
-   const auth = useContext(AuthContext)
-   
-   
-   useEffect(()=> {
-    console.log(props)
-   })
-  
+  console.log(props.isLoggedIn)
     return (
-      
+  
       <div>
-        {auth.isLogedIn ? <MapsPage /> : <AuthPage /> } 
       
+        {props.isLoggedIn ? <MapsPage /> : <AuthPage /> } 
+       
       </div>
 
     );
 }
 
-export default App;
+export default connect(
+  (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+
+
+)(App);
 
   

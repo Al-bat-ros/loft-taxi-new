@@ -1,48 +1,41 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
-import { AuthContext } from '../../../context/AuthContext'
+import { connect } from 'react-redux';
+import { authenticate } from '../../../store/action-creators/actions';
+import { Link } from 'react-router-dom';
 
-export default function FormInput({ setRouteReg }){
- const [name, setName] = useState('')
- const [password, setPassword] = useState('')
 
- const auth = useContext(AuthContext)
-
-const nameHandler = (e) => {
-    setName(e.target.value)
-}
-
-const passHandler = (e) => {
-    setPassword(e.target.value)
-}
-
-const send =(event)=> {
+ function FormInput(props){
+ 
+const authent =(event)=> {
     event.preventDefault();
-    auth.login(name, password)
+    const { email, password } = event.target;
+   
+    props.authenticate(email.value, password.value)
 }
 
     return (<>
-        <div className="form-input">
+    
+        <div className="form-input">    
             <div className="form-input-wrap">
                 <div className="form-input-wrap_wrap">
                     <h4 className="form-input_text">Войти</h4>
-                    <form className="form-input_container">
+                    <form className="form-input_container" onSubmit={authent}>
                         <div className="form-input-name_wrap">
                             <div className="form-input-input_name">
-                                <input onChange={e => nameHandler(e)} value={name}  id="name" type="name" name="name" placeholder="Имя пользователя*" />
+                                <input  id="email" type="email" name="email" placeholder="Имя пользователя*" />
                             </div>
                         </div>
                         <div className="form-input-pass_wrap">
                             <div className="form-input-input_pass">
-                               
-                                <input onChange={e => passHandler(e)}  value={password}  id="pass" type="password" name="password" placeholder='Пароль*' />
+                                <input  id="password" type="password" name="password" placeholder='Пароль*' />
                             </div>
                         </div>
-                            <button className="form-input_button" onClick={send} >Войти</button>
+                            <button className="form-input_button" type="submit" >Войти</button>
                     </form>
                     <div>
                     <p className="form-input_newuser">
                         Новый пользователь?
-                        <a onClick={() => setRouteReg(true)}>Зарегистрируйтесь</a>
+                        <Link to="/FormReg">Зарегистрируйтесь</Link>
                     </p>
                 </div>
                 </div>
@@ -51,3 +44,7 @@ const send =(event)=> {
         </div>
         </>)
 }
+export default connect( 
+    state => ({isLoggedIn: state.auth.isLoggedIn}),
+    { authenticate }
+)(FormInput)

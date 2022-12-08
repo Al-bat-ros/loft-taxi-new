@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext} from 'react'
 import logoHeader from '../../assets/images/logoHeader.svg';
-import { AuthContext } from '../../context/AuthContext';
-
+import { Link, Route, Routes } from "react-router-dom"
+import  AuthPage from '../../pages/AuthPages/AuthPage';
+import  MapsPage  from '../../pages/MapPage/MapsPage';
+import  FormProfileCard  from '../Forms/FormProfileCard/FormProfileCard'
+import { PrivateRoute } from '../../PrivateRoute'
 
 
 export default function Header({ setRouteModal }) {
-  const auth = useContext(AuthContext)
+ 
   
  
   return (
@@ -17,19 +20,20 @@ export default function Header({ setRouteModal }) {
                 <img width="272" height="61" viewBox="0 0 272 61" fill="none" src={logoHeader} alt="Header Logo"></img>
               </div>           
               <div>
-                  <button className="main-header_btn main-header-btn_map " onClick={() => {setRouteModal("formOrder")}}>
+                  <Link className="main-header_btn main-header-btn_map " to="/map">
                     <span className="main-header_lable">Карта</span>
-                  </button>
-                  <button className="main-header_btn main-header-btn_profile" onClick={() => {setRouteModal("formProfileCard")}}>
+                  </Link>
+                  <Link className="main-header_btn main-header-btn_profile" to="/profile">
                     <span className="main-header_lable">Профиль</span>
-                  </button>
-                  <button className="main-header_btn main-header-btn_out" onClick={() => {auth.logOut(true)}}>
+                  </Link>
+                  <Link className="main-header_btn main-header-btn_out" to="/AuthPage">
                     <span className="main-header_lable">Выйти</span>
-                  </button>
+                  </Link>
               </div>
           </div>
         </header>
     </div>
+    
     
   )
 }

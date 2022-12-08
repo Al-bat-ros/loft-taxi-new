@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { authenticate } from '../../../store/action-creators/actions'
+import { Link } from 'react-router-dom';
 
-export default function RegInput({ setRouteReg }){
+
+ function RegInput(props){
     return (
         <div className="form-input">
             <div className="form-input-wrap">
@@ -26,7 +30,7 @@ export default function RegInput({ setRouteReg }){
                     </form>
                     <div>
                     <p className="form-input_newuser">
-                        <a onClick={() => setRouteReg(false)}>Войти</a>
+                    <Link to="/FormInput">Войти</Link>
                     </p>
                 </div>
                 </div>
@@ -35,3 +39,7 @@ export default function RegInput({ setRouteReg }){
         </div>
     )
 }
+export default connect( 
+    state => ({isLoggedIn: state.auth.isLoggedIn}),
+    { authenticate }
+)(RegInput)

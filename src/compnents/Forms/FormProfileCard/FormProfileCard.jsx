@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Profile() {
+ function FormProfileCard() {
   return (
     <section className="profile">
       <div className="profile-substrate"></div>
@@ -39,3 +39,4 @@ export default function Profile() {
     </section>
   )
 }
+export default FormProfileCard

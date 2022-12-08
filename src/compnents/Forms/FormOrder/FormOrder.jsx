@@ -1,6 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-export default function SelectAddress({ setRouteReg }) {
+export default function SelectAddress() {
+
+  const getAuth = useSelector(store => store.auth)
+
   return (
     <section className='selectMod'>
       <div className="container-select">
