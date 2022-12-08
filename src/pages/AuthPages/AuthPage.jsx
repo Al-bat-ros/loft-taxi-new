@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FormInput, FormReg } from '../../compnents'
 import logo from '../../assets/images/logo.svg';
+import { connect } from 'react-redux';
+import { authenticate } from '../../store/action-creators/actions'
+import { Routes, Route, Link } from 'react-router-dom'
 
 import './AuthPageStyle.css';
 
 
 
-export default function AuthPages(){
-
-    const [routeReg, setRouteReg] = useState(false);
+ function AuthPages(props){
     
-
     return (
         <div className="input-page">
             <header className="Main-Header">
@@ -20,10 +20,18 @@ export default function AuthPages(){
                     </div>
                 </div>
             </header>
+
+            <Routes>
+              <Route path="/FormReg" element={<FormReg />} />
+              <Route path="/FormInput" element={<FormInput />} />
+              <Route path="*" element={<FormInput />} />
+            </Routes>   
             
-            {routeReg ? <FormReg setRouteReg={setRouteReg} /> : <FormInput  setRouteReg={setRouteReg}  /> }
-            
+
         </div>        
     )       
 }
-
+export default connect( 
+    state => ({isLoggedIn: state.auth.isLoggedIn}),
+    { authenticate }
+)(AuthPages)

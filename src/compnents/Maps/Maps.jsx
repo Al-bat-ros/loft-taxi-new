@@ -27,7 +27,7 @@ export default function Maps(events) {
   return (
     <div className='map-wrapper'>
         <div data-testid="map" className='map' ref={mapContainer}></div>
-    </div>
+   </div>
   )
 }
 
