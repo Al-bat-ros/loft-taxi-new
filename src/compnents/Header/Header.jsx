@@ -5,12 +5,11 @@ import  AuthPage from '../../pages/AuthPages/AuthPage';
 import  MapsPage  from '../../pages/MapPage/MapsPage';
 import  FormProfileCard  from '../Forms/FormProfileCard/FormProfileCard'
 import { PrivateRoute } from '../../PrivateRoute'
+import { connect } from 'react-redux';
+import { logIn, logOut} from '../../store/action-creators/actions'
 
-
-export default function Header({ setRouteModal }) {
- 
+ function Header(props) {
   
- 
   return (
     
     <div>
@@ -27,7 +26,7 @@ export default function Header({ setRouteModal }) {
                     <span className="main-header_lable">Профиль</span>
                   </Link>
                   <Link className="main-header_btn main-header-btn_out" to="/AuthPage">
-                    <span className="main-header_lable">Выйти</span>
+                    <span className="main-header_lable" >Выйти</span>
                   </Link>
               </div>
           </div>
@@ -37,3 +36,7 @@ export default function Header({ setRouteModal }) {
     
   )
 }
+export default connect( 
+  state => ({isLoggedIn: state.auth.isLoggedIn}),
+  null
+)(Header)

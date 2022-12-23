@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react'
  import  mapboxgl from 'mapbox-gl'
+ import {drawRoute} from '../../pages/MapPage/drowRoute';
 
 
 export default function Maps(events) {

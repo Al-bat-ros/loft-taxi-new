@@ -1,9 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { Select, Button } from '../../../ui'
 
-export default function SelectAddress() {
+export default function SelectAddress(props) {
 
-  const getAuth = useSelector(store => store.auth)
+  const store = useSelector(store => store);
+  let selectArr = [];
+  if(store.list.addresses) {
+    selectArr= store.list.addresses.addresses;
+  }
+   
+    
 
   return (
     <section className='selectMod'>
@@ -12,10 +19,14 @@ export default function SelectAddress() {
             <div className="select-address_wrap">
               <div className="select-address-wrap_wrap">
                 <div className="select-address_from">
-                  <input name="from" id='from' placeholder="Откуда"/>
+                  {/* <input name="from" id='from' placeholder="Откуда"/> */}
+                 
+                  <Select listArr={selectArr} />
                 </div>
                 <div className="select-address_to">
-                  <input name="to" id='to' placeholder="Куда"/>
+                  {/* <input name="to" id='to' placeholder="Куда"/> */}
+            
+                  <Select listArr={selectArr} />
                 </div>
               </div>
             </div>
@@ -29,7 +40,7 @@ export default function SelectAddress() {
                     <div className="card-class_wrap">Премиум</div>
                 </div>
               </div>
-              <button className="select-btn-order" type="button" onClick={() => {}}>Заказать</button>
+              <Button buttonAttr={'Заказать'} />
             </div>
         </div>
       </div>

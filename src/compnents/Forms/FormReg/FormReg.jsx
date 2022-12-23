@@ -1,16 +1,24 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { authenticate } from '../../../store/action-creators/actions'
+import { registration } from '../../../store/action-creators/actions'
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
+import { Button } from '../../../ui'
 
  function RegInput(props){
+    const store = useSelector(store => store);
+    const registration = (event) => {
+        event.preventDefault();
+        
+        const { email, password, name, surname } = event.target;
+        props.registration(email.value,  password.value, name.value, surname.value)
+    }
     return (
         <div className="form-input">
             <div className="form-input-wrap">
                 <div className="form-input-wrap_wrap">
                     <h4 className="form-input_text">Регистрация</h4>
-                    <form className="form-input_container">
+                    <form className="form-input_container" onSubmit={registration}>
                         <div className="form-input-email_wrap">
                             <div className="form-input-input_email">
                                 <input id="email" type="email" name="email" placeholder="Email*" />
@@ -21,12 +29,17 @@ import { Link } from 'react-router-dom';
                                 <input id="name" type="name" name="name" placeholder="Имя пользователя*" />
                             </div>
                         </div>
+                        <div className="form-input-surname_wrap">
+                            <div className="form-input-input_surname">
+                                <input id="surname" type="surname" name="surname" placeholder="Фамилия*" />
+                            </div>
+                        </div>
                         <div className="form-input-pass_wrap">
                             <div className="form-input-input_pass">
                                 <input id="pass" type="password" name="password" placeholder="Пароль*"/>
                             </div>
                         </div>
-                            <button className="form-input_button" type="submit">Зарегистрироватся</button>
+                             <Button buttonAttr={'Зарегистрироватся'} />
                     </form>
                     <div>
                     <p className="form-input_newuser">
@@ -40,6 +53,6 @@ import { Link } from 'react-router-dom';
     )
 }
 export default connect( 
-    state => ({isLoggedIn: state.auth.isLoggedIn}),
-    { authenticate }
+    null,
+    { registration }
 )(RegInput)

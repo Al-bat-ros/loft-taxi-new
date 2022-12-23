@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../../../store/action-creators/actions';
 import { Link } from 'react-router-dom';
-
+import  Button  from '../../../ui/Button/Button';
 
  function FormInput(props){
- 
 const authent =(event)=> {
+    
     event.preventDefault();
     const { email, password } = event.target;
    
@@ -30,7 +30,7 @@ const authent =(event)=> {
                                 <input  id="password" type="password" name="password" placeholder='Пароль*' />
                             </div>
                         </div>
-                            <button className="form-input_button" type="submit" >Войти</button>
+                        <Button buttonAttr={'Войти'} />
                     </form>
                     <div>
                     <p className="form-input_newuser">

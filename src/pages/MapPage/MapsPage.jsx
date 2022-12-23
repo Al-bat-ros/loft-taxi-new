@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import {Header, FormOrder, FormProfileCard, Maps } from '../../compnents'
+import {Header, FormOrder, FormProfileCard, Maps, ModalTransitionMap } from '../../compnents'
+import { connect } from 'react-redux';
 import { Routes, Route, Link } from 'react-router-dom'
-import  AuthPage from '../AuthPages/AuthPage'
-import { PrivateRoute } from '../../PrivateRoute'
+import { addressListSuccess } from '../../store/action-creators/actions'
+import { useSelector } from 'react-redux';
+// import  AuthPage from '../AuthPages/AuthPage'
+// import { PrivateRoute } from '../../PrivateRoute'
 
 import './mapStyle.css'
+import AuthPage from '../AuthPages/AuthPage';
 
-export default function MapsComp({}) {
 
+ function MapsPage({ props }) {
+  
+  useEffect(() => {
+    
+    if(props) {
+      addressListSuccess()
+    }  
+  },[])
 
   return (
-  
+    
     <div>
       <Header />
       <Maps />
@@ -21,6 +32,11 @@ export default function MapsComp({}) {
       </Routes>
       
       
-    </div>
+    </div> 
   )
 }
+export default connect( 
+  state => ({isLoggedIn: state.auth.isLoggedIn}),
+  { addressListSuccess  }
+)(MapsPage)
+
