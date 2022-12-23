@@ -1,12 +1,17 @@
-// import React from 'react';
-// import { Maps } from './Maps';
-// import { render, screen } from '@testing-library/react'
+import React from 'react';
+import { render, screen } from '@testing-library/react'
+import { Maps } from './Maps';
 
-// // describe('Maps', () => {
 
-// //     it('Loading the map when I go to the page', () => {
-// //         render(<Maps />);
-// //         
-// //         expect(screen.getByText("map")).toBeInTheDocument();
-// //     })
-// // });
+
+
+
+describe('Maps', () => {
+    render(<Maps />);
+    it("Loading the map when I go to the pages",  () => {
+        
+        const mapElement = screen.getByTestId("map")
+        expect(mapElement).toBeInTheDocument();
+        
+    });
+});

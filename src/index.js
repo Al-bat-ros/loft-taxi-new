@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import  {AuthProvider}  from './context/AuthContext'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+ import { store }  from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <AuthProvider>
-    
-      <App />
-    </AuthProvider>
+  < Provider store={store}> 
+   <BrowserRouter>         
+      <App />          
+   </BrowserRouter>
+  </Provider> 
  );
 
 

@@ -113,7 +113,7 @@
     pointer-events: none;
 }
 
-#name, #email, #pass {
+#name, #email, #password {
     font: inherit;
     color: currentColor;
     width: 100%;

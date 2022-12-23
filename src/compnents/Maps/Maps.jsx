@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react'
  import  mapboxgl from 'mapbox-gl'
+ import {drawRoute} from '../../pages/MapPage/drowRoute';
 
 
 export default function Maps(events) {
@@ -27,7 +28,7 @@ export default function Maps(events) {
   return (
     <div className='map-wrapper'>
         <div data-testid="map" className='map' ref={mapContainer}></div>
-    </div>
+   </div>
   )
 }
 
